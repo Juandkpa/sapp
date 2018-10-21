@@ -7,12 +7,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { CreateGroupPage } from '../pages/create-group/create-group';
 import { RestProvider } from '../providers/rest/rest';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    CreateGroupPage
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { RestProvider } from '../providers/rest/rest';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    CreateGroupPage
   ],
   providers: [
     StatusBar,

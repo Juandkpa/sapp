@@ -8,8 +8,12 @@
       </ion-header>
       
       <ion-content>
-          <ion-card *ngFor="let g of groups">
-              <!--img src="img/nin-live.png"/-->
+          <ion-fab right bottom>
+              <button ion-fab mini (click)="openModal()">
+                <ion-icon name="add"></ion-icon>
+              </button>
+          </ion-fab>
+          <ion-card *ngFor="let g of groups">              
               <img src="{{g.image}}">
               <ion-card-content>
                 <ion-card-title>

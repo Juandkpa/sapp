@@ -34,14 +34,18 @@ export class RestProvider {
    */
   public getGroups() : Observable<Group[]>  {
     return this.http
-      .get(this.baseUrl + '/products')
+      .get(this.baseUrl + '/groups')
       .pipe(        
         map (ans => Object.keys(ans).map(k=> new Group(ans[k])))
       )
   }
 
-  public createGroup(product: Group) {
-
+  public createGroup(group: Group) {
+    return this.http
+      .post(this.baseUrl + '/groups', group)
+      .pipe(
+        map(ans => new Group(ans))
+      )
   }
 
   public getGroupById(groupId: number) {    

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { RestProvider, Group } from '../../providers/rest/rest';
-//import { App, MenuController } from 'ionic-angular';
+import { Component,  } from '@angular/core';
+import { RestProvider, Group  } from '../../providers/rest/rest';
+import { ModalController } from 'ionic-angular';
+import { CreateGroupPage } from '../create-group/create-group';
 
 @Component({
   selector: 'page-home',
@@ -9,12 +10,13 @@ import { RestProvider, Group } from '../../providers/rest/rest';
 export class HomePage {
   private groups : Group[];  
   
-  constructor(public restProvider:RestProvider) {
+  constructor(public restProvider:RestProvider, public modalCtrl: ModalController) {
     this.groups = [];
-    this.getProducts();     
+    this.getGroups();     
   }
   
-  getProducts() {
+  getGroups() {
+    //lack loaders
     this.restProvider
       .getGroups()
       .subscribe(
@@ -26,5 +28,15 @@ export class HomePage {
           console.error(err);
         }
       )
+  }
+
+  openModal() {
+    let modal = this.modalCtrl.create(CreateGroupPage);
+
+    modal.onDidDismiss(data => {
+      this.getGroups();
+    })
+    modal.present();
+
   }
 }
