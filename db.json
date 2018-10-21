@@ -1,0 +1,22 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Queen",
+        "fragment": "The best event ever group",
+        "image": "https://cdn-images-1.medium.com/max/1200/0*sUYztIAGGLmJDtGy.jpg"        
+      },
+      {
+        "id": 2,
+        "name": "Oasis",
+        "fragment": "Cool Band",
+        "image": "http://www.gamba.fm/wp/wp-content/uploads/2018/09/Oasis.jpg"
+      },   
+      {
+        "id": 3,
+        "name": "Metallica",
+        "fragment": "Full Metal Yeah!!",
+        "image": "https://indiehoy.com/wp-content/uploads/2018/05/metallica2017.jpg"
+      }
+    ]
+  }
