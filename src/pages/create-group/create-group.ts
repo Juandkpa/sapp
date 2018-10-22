@@ -22,10 +22,8 @@ export class CreateGroupPage {
       let sGroup = params.get('selectedGroup');
       if( sGroup ) {
         this.updateMode = true;
-        this.data['id']       = sGroup.id;
-        this.data['name']     = sGroup.name;
-        this.data['fragment'] = sGroup.fragment;
-        this.data['image']    = sGroup.image;
+        let asString = JSON.stringify(sGroup);
+        this.data = JSON.parse(asString);        
       }
       
     }
