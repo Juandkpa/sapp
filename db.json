@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Queen",
-      "fragment": "The best event ever group",
+      "fragment": "Queen es una banda británica de rock formada en 1970 en Londres por el cantante Freddie Mercury, el guitarrista Brian May, el baterista Roger Taylor y el bajista John Deacon.",
       "image": "https://cdn-images-1.medium.com/max/1200/0*sUYztIAGGLmJDtGy.jpg"
     },
     {
@@ -29,6 +29,21 @@
       "fragment": "The band of dave grohl, ex Nirvana",
       "image": "https://ichef.bbci.co.uk/images/ic/960x540/p01br4cp.jpg",
       "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "name": "Queen :D",
+      "fragment": "The best event ever group",
+      "image": "https://cdn-images-1.medium.com/max/1200/0*sUYztIAGGLmJDtGy.jpg",
+      "id": 7
+    },
+    {
+      "name": "Red Hot Chilli Peppers",
+      "fragment": "Los Red Hot",
+      "image": "https://www.puremix.net/images/cache/thumbs/inside_the_mix_red_hot_chili_peppers_w_andrew_scheps/inside_the_mix_red_hot_chili_peppers_w_andrew_scheps-1800-86-og_v.jpg",
+      "id": 8
     }
   ]
 }

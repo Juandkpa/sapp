@@ -2,6 +2,7 @@ import { Component,  } from '@angular/core';
 import { RestProvider, Group  } from '../../providers/rest/rest';
 import { ModalController } from 'ionic-angular';
 import { CreateGroupPage } from '../create-group/create-group';
+//import { UpdatePage } from '../create-group/create-group';
 
 @Component({
   selector: 'page-home',
@@ -9,9 +10,11 @@ import { CreateGroupPage } from '../create-group/create-group';
 })
 export class HomePage {
   private groups : Group[];  
+  private modalComponent : any;
+  selectedGroup : Group;
   
   constructor(public restProvider:RestProvider, public modalCtrl: ModalController) {
-    this.groups = [];
+    this.groups = [];    
     this.getGroups();     
   }
   
@@ -30,13 +33,17 @@ export class HomePage {
       )
   }
 
-  openModal() {
-    let modal = this.modalCtrl.create(CreateGroupPage);
+  openModal(group) {
+    console.warn("in open modal group >>", group);
+    
+    this.selectedGroup = group;
+
+    let modal = this.modalCtrl.create(CreateGroupPage, {selectedGroup: this.selectedGroup});
 
     modal.onDidDismiss(data => {
       this.getGroups();
     })
     modal.present();
-
   }
+
 }

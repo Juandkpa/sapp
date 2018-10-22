@@ -40,7 +40,7 @@ export class RestProvider {
       )
   }
 
-  public createGroup(group: Group) {
+  public createGroup(group: Group) : Observable<Group> {
     return this.http
       .post(this.baseUrl + '/groups', group)
       .pipe(
@@ -52,8 +52,12 @@ export class RestProvider {
 
   }
 
-  public updateProduct(product: Group) {
-
+  public updateGroup(group: Group):Observable<Group> {
+    return this.http
+    .put(this.baseUrl + '/groups/' + group.id, group)
+    .pipe(
+      map(ans => new Group(ans))
+    )
   }
 
   public deleteProductById(groupId: number) {

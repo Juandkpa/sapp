@@ -15,7 +15,17 @@
           </ion-fab>
           <ion-card *ngFor="let g of groups">              
               <img src="{{g.image}}">
-              <ion-card-content>
+              <div class="floating"> 
+                  <button ion-button clear small color="light" icon-start (click)="openModal(g)">
+                      <ion-icon name="brush"></ion-icon>
+                      Editar
+                  </button>
+                  <button ion-button clear small color="light" icon-start>
+                    <ion-icon name="trash"></ion-icon>
+                    Borrar
+                  </button>
+                </div>              
+              <ion-card-content>                
                 <ion-card-title>
                   {{g.name}}
                   </ion-card-title>
@@ -45,5 +55,5 @@
                 </ion-row>
             </ion-card>
 
-      </ion-content>
+      </ion-content>      
       
