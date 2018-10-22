@@ -13,12 +13,6 @@
       "image": "http://www.gamba.fm/wp/wp-content/uploads/2018/09/Oasis.jpg"
     },
     {
-      "id": 3,
-      "name": "Metallica",
-      "fragment": "Full Metal Yeah!!",
-      "image": "https://indiehoy.com/wp-content/uploads/2018/05/metallica2017.jpg"
-    },
-    {
       "name": "Pearl Jam",
       "fragment": "Awsome band",
       "image": "https://www.rockandpop.cl/wp-content/uploads/2018/03/pearl.jpg",
@@ -29,15 +23,6 @@
       "fragment": "The band of dave grohl, ex Nirvana",
       "image": "https://ichef.bbci.co.uk/images/ic/960x540/p01br4cp.jpg",
       "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "name": "Queen :D",
-      "fragment": "The best event ever group",
-      "image": "https://cdn-images-1.medium.com/max/1200/0*sUYztIAGGLmJDtGy.jpg",
-      "id": 7
     },
     {
       "name": "Red Hot Chilli Peppers",

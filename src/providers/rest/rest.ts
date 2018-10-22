@@ -60,7 +60,9 @@ export class RestProvider {
     )
   }
 
-  public deleteProductById(groupId: number) {
+  public deleteGroupById(groupId: number) {
+    return this.http
+      .delete(this.baseUrl + '/groups/' + groupId)
  
   }
 

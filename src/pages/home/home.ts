@@ -46,4 +46,19 @@ export class HomePage {
     modal.present();
   }
 
+  delete(id) {
+    this.restProvider
+      .deleteGroupById(id)
+      .subscribe(
+        () => {
+          this.getGroups();
+          console.warn("eliminado ok");
+        },
+        (err) =>{
+          console.error("error al elimnar", err);
+        }        
+      )
+
+  }
+
 }
