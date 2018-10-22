@@ -14,7 +14,7 @@
     },
     {
       "name": "Pearl Jam",
-      "fragment": "Awsome band",
+      "fragment": "Es un grupo de grunge y rock fdfdalternativo formado en Seattle, Estados Unidos, en el año 1990. El grupo estaba originalmente compuesto por Stone Gossard (guitarra rítmica), Jeff Ament (bajo), Mike McCready (guitarra principal), Eddie Vedder (voz) y Dave Krusen (batería). El baterista en la formación actual es Matt Cameron, miembro a su vez de Soundgarden, que pertenece al grupo desde 1998...",
       "image": "https://www.rockandpop.cl/wp-content/uploads/2018/03/pearl.jpg",
       "id": 4
     },
@@ -29,6 +29,12 @@
       "fragment": "Los Red Hot, way",
       "image": "https://www.puremix.net/images/cache/thumbs/inside_the_mix_red_hot_chili_peppers_w_andrew_scheps/inside_the_mix_red_hot_chili_peppers_w_andrew_scheps-1800-86-og_v.jpg",
       "id": 8
+    },
+    {
+      "name": "Pink Floyd",
+      "fragment": "fue una banda de rock británica, considerada un icono cultural del siglo xx y una de las bandas más influyentes en la historia de la música, que obtuvo gran popularidad gracias a su música psicodélica que evolucionó hacia el rock progresivo y rock sinfónico con el paso del tiempo.",
+      "image": "https://www.elsoldemexico.com.mx/gossip/celebridades/1dvioh-pinkfloyd-5.jpg/ALTERNATES/LANDSCAPE_1140/pinkfloyd-5.jpg",
+      "id": 10
     }
   ]
 }

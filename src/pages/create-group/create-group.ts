@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, LoadingController, Loading } from 'ionic-angular';
 import { RestProvider, Group } from '../../providers/rest/rest';
 
 @Component({
@@ -9,6 +9,7 @@ import { RestProvider, Group } from '../../providers/rest/rest';
 export class CreateGroupPage {  
   private group : Group;
   private updateMode : boolean;
+  private loader: Loading;
   data = {};
   
   constructor(
@@ -16,6 +17,7 @@ export class CreateGroupPage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     public restProvider: RestProvider,
+    public loadingCtrl: LoadingController,
     params: NavParams
     ) {
       this.updateMode = false;
@@ -25,6 +27,7 @@ export class CreateGroupPage {
         let asString = JSON.stringify(sGroup);
         this.data = JSON.parse(asString);        
       }
+      console.warn("is update mode??", this.updateMode);
       
     }
 
@@ -37,7 +40,8 @@ export class CreateGroupPage {
     this.restProvider
       .createGroup(this.group)
       .subscribe(
-        (group: Group) => {          
+        (group: Group) => {
+          this.loader.dismiss();        
           this.dismiss();
         },
         (err) => {
@@ -51,7 +55,8 @@ export class CreateGroupPage {
     this.restProvider
       .updateGroup(this.group)
       .subscribe(
-        (group: Group) =>{          
+        (group: Group) =>{
+          this.loader.dismiss();          
           this.dismiss();
         },
         (err) =>{
@@ -60,7 +65,11 @@ export class CreateGroupPage {
       )
   }
 
-  fireAction() {
+  fireAction() {    
+    this.loader = this.loadingCtrl.create({
+      spinner: 'bubbles'
+    });
+    this.loader.present();
     this.updateMode ? this.update() : this.save();
   }
 

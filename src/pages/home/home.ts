@@ -1,45 +1,49 @@
 import { Component,  } from '@angular/core';
 import { RestProvider, Group  } from '../../providers/rest/rest';
-import { ModalController } from 'ionic-angular';
+import { ModalController, LoadingController  } from 'ionic-angular';
 import { CreateGroupPage } from '../create-group/create-group';
-//import { UpdatePage } from '../create-group/create-group';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  private groups : Group[];  
-  private modalComponent : any;
+  private groups : Group[];    
   selectedGroup : Group;
   
-  constructor(public restProvider:RestProvider, public modalCtrl: ModalController) {
+  constructor(
+    public modalCtrl: ModalController,
+    public loadingCtrl: LoadingController,
+    public restProvider:RestProvider
+    
+    ) {
     this.groups = [];    
     this.getGroups();     
   }
   
   getGroups() {
-    //lack loaders
+    const loader = this.loadingCtrl.create({
+      spinner: 'bubbles'      
+    })
+    loader.present();
     this.restProvider
       .getGroups()
       .subscribe(
         (groups : Group[]) => {
           this.groups = groups;
+          loader.dismiss();
           console.warn("groups >> ", this.groups);
         },
         (err) => {
+          loader.dismiss();
           console.error(err);
         }
       )
   }
 
-  openModal(group) {
-    console.warn("in open modal group >>", group);
-    
+  openModal(group) {    
     this.selectedGroup = group;
-
     let modal = this.modalCtrl.create(CreateGroupPage, {selectedGroup: this.selectedGroup});
-
     modal.onDidDismiss(data => {
       this.getGroups();
     })
@@ -58,7 +62,6 @@ export class HomePage {
           console.error("error al elimnar", err);
         }        
       )
-
   }
 
 }
