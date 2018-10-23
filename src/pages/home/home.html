@@ -8,14 +8,14 @@
       </ion-header>
       
       <ion-content>
-          <ion-fab right bottom>
+          <!--ion-fab right bottom>
               <button ion-fab mini (click)="openModal()">
                 <ion-icon name="add"></ion-icon>
               </button>
-          </ion-fab>
+          </ion-fab-->
           <ion-card *ngFor="let g of groups">              
               <img src="{{g.image}}">
-              <div class="floating"> 
+              <!--div class="floating"> 
                   <button ion-button clear small color="light" icon-start (click)="openModal(g)">
                       <ion-icon name="brush"></ion-icon>
                       Editar
@@ -24,7 +24,7 @@
                     <ion-icon name="trash"></ion-icon>
                     Borrar
                   </button>
-                </div>              
+                </div-->
               <ion-card-content>                
                 <ion-card-title>
                   {{g.name}}
