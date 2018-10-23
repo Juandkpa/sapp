@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
@@ -24,15 +24,27 @@ export class Group {
 
 @Injectable()
 export class RestProvider {
-  baseUrl:string = "http://localhost:3000";
+   baseUrl:string = "https://groups-api-p.herokuapp.com";
+  //baseUrl:string = "http://localhost:3000";
+  options:any;
 
-  constructor(private http : HttpClient) {}
+  constructor(private http : HttpClient) {
+    let headers = new HttpHeaders(
+      {
+        'Content-Type': 'application/json'
+      }
+      );
+    this.options = { headers: headers };
+
+
+  }
   
   //methods
   /**
    * Sending a get request to /products
    */
-  public getGroups() : Observable<Group[]>  {
+  public getGroups() : Observable<Group[]>  {    
+    
     return this.http
       .get(this.baseUrl + '/groups')
       .pipe(        
@@ -40,9 +52,11 @@ export class RestProvider {
       )
   }
 
-  public createGroup(group: Group) : Observable<Group> {
+  public createGroup(group: Group) : Observable<Group> {    
+        
+    let data = JSON.stringify(group);
     return this.http
-      .post(this.baseUrl + '/groups', group)
+      .post(this.baseUrl + '/groups', data, this.options)
       .pipe(
         map(ans => new Group(ans))
       )
@@ -53,8 +67,9 @@ export class RestProvider {
   }
 
   public updateGroup(group: Group):Observable<Group> {
+    let data = JSON.stringify(group)
     return this.http
-    .put(this.baseUrl + '/groups/' + group.id, group)
+    .put(this.baseUrl + '/groups/' + group.id, data, this.options)    
     .pipe(
       map(ans => new Group(ans))
     )
@@ -62,7 +77,7 @@ export class RestProvider {
 
   public deleteGroupById(groupId: number) {
     return this.http
-      .delete(this.baseUrl + '/groups/' + groupId)
+      .delete(this.baseUrl + '/groups/' + groupId, this.options)
  
   }
 
