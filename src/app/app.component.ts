@@ -31,17 +31,19 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();  
-      window["plugins"].OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
 
-      var notificationOpenedCallback = function(jsonData) {
-        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-      };
-
-      window["plugins"].OneSignal
-        .startInit("7046d862-ba79-4f12-9af9-506bb0bfa1f1", "854841993512")
-        .handleNotificationOpened(notificationOpenedCallback)
-        .endInit();
-
+      if(this.platform.is('core') || this.platform.is('mobileweb')) {
+        console.warn("Not use one signal, mobile web");
+      }else {
+        var notificationOpenedCallback = function(jsonData) {
+          console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+        };
+        window["plugins"].OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});      
+        window["plugins"].OneSignal
+          .startInit("7046d862-ba79-4f12-9af9-506bb0bfa1f1", "854841993512")
+          .handleNotificationOpened(notificationOpenedCallback)
+          .endInit();        
+      }
                
     });
   }
