@@ -30,7 +30,19 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
-      this.splashScreen.hide();           
+      this.splashScreen.hide();  
+      window["plugins"].OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+
+      var notificationOpenedCallback = function(jsonData) {
+        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+      };
+
+      window["plugins"].OneSignal
+        .startInit("7046d862-ba79-4f12-9af9-506bb0bfa1f1", "854841993512")
+        .handleNotificationOpened(notificationOpenedCallback)
+        .endInit();
+
+               
     });
   }
 
