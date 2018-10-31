@@ -3,7 +3,7 @@ var app      = express();
 var morgan = require('morgan');            
 var bodyParser = require('body-parser');    
 var cors = require('cors');
- 
+var PORT = process.env.PORT || 5000;
 app.use(morgan('dev'));                                        
 app.use(bodyParser.urlencoded({'extended':'true'}));            
 app.use(bodyParser.json());                                     
@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
 });
  
 app.use(express.static('www'));
-app.set('port', process.env.PORT || 5000);
-app.listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
+//app.set('port', process.env.PORT || 5000);
+app.listen(PORT, function () {
+  console.log('Express server listening on port ' + PORT );
 });
