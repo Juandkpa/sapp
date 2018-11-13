@@ -11,12 +11,17 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CreateGroupPage } from '../pages/create-group/create-group';
 import { RestProvider } from '../providers/rest/rest';
+import { SingUpPage } from '../pages/sing-up/sing-up';
+import { LoginPage } from '../pages/login/login';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    CreateGroupPage
+    CreateGroupPage,
+    SingUpPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -27,14 +32,17 @@ import { RestProvider } from '../providers/rest/rest';
   entryComponents: [
     MyApp,
     HomePage,
-    CreateGroupPage
+    CreateGroupPage,
+    SingUpPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
-    OneSignal
+    OneSignal,
+    AuthServiceProvider
   ]
 })
 export class AppModule {}

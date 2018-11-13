@@ -24,16 +24,18 @@ export class Group {
 
 @Injectable()
 export class RestProvider {
-   baseUrl:string = "https://groups-api-p.herokuapp.com";
-  //baseUrl:string = "http://localhost:3000";
+   //baseUrl:string = "https://groups-api-p.herokuapp.com";
+  baseUrl:string = "http://localhost:3000";
   options:any;
 
   constructor(private http : HttpClient) {
     let headers = new HttpHeaders(
       {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem("jwt")
       }
       );
+      console.warn("auth:", 'Bearer ' + localStorage.getItem("jwt"));
     this.options = { headers: headers };
 
 
@@ -41,12 +43,12 @@ export class RestProvider {
   
   //methods
   /**
-   * Sending a get request to /products
+   * Sending a get request to /groups
    */
   public getGroups() : Observable<Group[]>  {    
     
     return this.http
-      .get(this.baseUrl + '/groups')
+      .get(this.baseUrl + '/groups', this.options)
       .pipe(        
         map (ans => Object.keys(ans).map(k=> new Group(ans[k])))
       )
